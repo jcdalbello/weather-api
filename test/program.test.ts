@@ -1,6 +1,5 @@
 import { app, server } from "../app/program";
 import supertest from "supertest";
-
  
 const requestWithSupertest = supertest(app);
 
@@ -19,7 +18,8 @@ describe("GET /", () => {
 
 describe("GET /weather/:city", () => {
   test("should return code 200 when requested", async () => {
-    const response = await requestWithSupertest.get("/weather/london");
+    const url = "/weather/london";
+    const response = await requestWithSupertest.get(url);
     expect(response.status).toEqual(SUCCESSFUL_RESPONSE_CODE);
   })
 });
