@@ -6,4 +6,12 @@ export default class WeatherData {
     this.city = city;
     this.temperature = temperature;
   }
+
+  public getCity(): string {
+    return this.city;
+  }
+
+  public getTemperature(): number {
+    return this.temperature;
+  }
 }

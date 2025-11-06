@@ -1,11 +1,12 @@
 import express, { Request, Response } from "express";
+import WeatherDataProvider from "./weather-data-provider";
 import WeatherModelSystem from "./weather-model-system";
-// import WeatherData from "./weather-data";
 
 const app = express();
 const port = 3000;
 
-const weatherModelSystem = new WeatherModelSystem();
+const weatherDataProvider = new WeatherDataProvider();
+const weatherModelSystem = new WeatherModelSystem(weatherDataProvider);
 
 app.use(express.json());
 
