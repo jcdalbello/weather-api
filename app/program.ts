@@ -11,6 +11,12 @@ app.get("/", async (req: Request, res: Response) => {
     .json({"version": "1.0.0"});
 });
 
+app.get("/weather/:city", async (req: Request, res: Response) => {
+  res
+    .status(200)
+    .json({"version": "1.0.0"});
+});
+
 const server = app
   .listen(port, () => {
     console.log("El servidor está corriendo en el puerto: ", port);

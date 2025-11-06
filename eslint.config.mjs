@@ -1,17 +1,26 @@
 // eslint.config.mjs
-import eslint from "@eslint/js";
-import tseslint from "typescript-eslint";
+import tseslint from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
 import { defineConfig } from "eslint/config";
 
 export default defineConfig([
-  eslint.configs.recommended,
-  ...tseslint.configs.recommended,
   {
     files: ["**/*.ts", "**/*.tsx"],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+      },
+    },
+    plugins: {
+      "@typescript-eslint": tseslint,
+    },
     rules: {
       indent: ["error", 2],
       "max-len": ["error", { code: 120 }],
-      "function-paren-newline": ["error", "multiline"],
+      "function-paren-newline": ["error", "multiline"], // forces one param per line when multiline
+      "function-call-argument-newline": ["error", "consistent"], // consistent argument formatting
     },
   },
 ]);
