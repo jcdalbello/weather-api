@@ -3,7 +3,8 @@
     "build": "tsc",
     "start": "ts-node ./app/program",
     "dev": "ts-node ./src/app.ts",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "lint": "eslint ./app ./test --ext .ts"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.28.5",

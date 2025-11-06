@@ -3,3 +3,4 @@ set -x
 
 yarn install
 yarn test
+yarn lint
