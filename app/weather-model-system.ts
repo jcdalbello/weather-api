@@ -8,8 +8,8 @@ export default class WeatherModelSystem{
     this.weatherDataProvider = weatherDataProvider;
   }
   
-  public getWeatherData(city: string): WeatherData {
-    const temperature = 1;
-    return new WeatherData(city, temperature);
+  public async getWeatherData(city: string): Promise<WeatherData> {
+    const weatherData = await this.weatherDataProvider.getWeatherData(city);
+    return weatherData;
   }
 }

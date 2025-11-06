@@ -10,6 +10,7 @@ beforeEach(() => {
 describe("getWeatherData", () => {
   test("should check that the returned value is not undefined", async () => {
     const city = "london";
-    expect(weatherDataProvider.getWeatherData(city)).not.toBeUndefined();
+    const weatherData = await weatherDataProvider.getWeatherData(city);
+    expect(weatherData).not.toBeUndefined();
   });
 });
